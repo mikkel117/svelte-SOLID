@@ -1,11 +1,11 @@
-import { Person } from "./personClass";
+import { Person } from "./PersonClass";
 
 export class stundent extends Person {
     stundentClass: string;
     subject: string[];
     grade: Record<string, number>;
-    constructor(name: string, address: string, stundentClass: string){
-        super(name, address, "elev");
+    constructor(id: number, name: string, address: string, stundentClass: string){
+        super(id, name, address, "elev");
         this.stundentClass = stundentClass
         this.subject = [];
         this.grade = {};

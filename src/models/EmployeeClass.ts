@@ -1,9 +1,9 @@
-import { Person } from "./personClass";
+import { Person } from "./PersonClass";
 
 export abstract class Employee extends Person {
     monthSalary: number;
-    constructor(name: string, address: string, role: string, monthSalary: number){
-        super(name, address, role);
+    constructor(id: number, name: string, address: string, role: string, monthSalary: number){
+        super(id, name, address, role);
         this.monthSalary = monthSalary;
     }
 
