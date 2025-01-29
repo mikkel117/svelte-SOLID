@@ -1,6 +1,6 @@
 import { Person } from "./PersonClass";
 
-export class stundent extends Person {
+export class Stundent extends Person {
     stundentClass: string;
     subject: string[];
     grade: Record<string, number>;
