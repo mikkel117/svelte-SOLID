@@ -3,7 +3,7 @@
 	import { students } from '../../store';
 
 	function AddStundentToSubject(student: Stundent) {
-		student.AddStudentToSubject('Dansk');
+		student.subject.addSubject('Math');
 		NotifyStore();
 	}
 
@@ -19,7 +19,7 @@
 {#each $students as student}
 	<div>
 		<p>{student.name}</p>
-		<p>{student.subject}</p>
+		<p>{student.subject.subjects[0]}</p>
 		<button on:click={() => AddStundentToSubject(student)}>Add to subject</button>
 	</div>
 {/each}

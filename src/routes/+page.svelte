@@ -9,3 +9,7 @@
 	<div class="bg-sky-500 text-center">8</div>
 	<div class="bg-sky-500 text-center">9</div>
 </div>
+
+<div>
+	<a href="/stundent">gå til elev</a>
+</div>

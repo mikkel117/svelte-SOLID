@@ -1,41 +1,29 @@
-import { Person } from "./PersonClass";
+import type { IPerson } from './interfaces/PersonInterface';
+import { GradeManager } from './managers/GradeManager';
+import { SubjectManager } from './managers/SubjectManager';
 
-export class Stundent extends Person {
-    stundentClass: string;
-    subject: string[];
-    grade: Record<string, number>;
-    constructor(id: number, name: string, address: string, stundentClass: string){
-        super(id, name, address, "elev");
-        this.stundentClass = stundentClass
-        this.subject = [];
-        this.grade = {};
-    }
+export interface IStudent extends IPerson {
+	stundentClass: string;
+	subject: SubjectManager;
+	grade: GradeManager;
+}
 
-    AddStudentToSubject(subject: string): void {
-        if(!this.subject.includes(subject)){
-            this.subject.push(subject);
-        }
-    }
+export class Stundent implements IStudent {
+	id: number;
+	name: string;
+	address: string;
+	role: string;
+	readonly stundentClass: string;
+	subject: SubjectManager;
+	grade: GradeManager;
 
-    RemoveStudentFromSubject(subject: string): void{
-        this.subject = this.subject.filter((item) => item != subject);
-    }
-
-    GIveGrade(subject: string, grade: number): void {
-        if(this.subject.includes(subject)){
-            this.grade[subject] = grade;
-        }
-    }
-
-    UpdateGrade(subject: string, grade: number): void{
-        if(this.subject.includes(subject)){
-            this.grade[subject] = grade;
-        }
-    }
-
-    calculatAverageGrade(): number {
-        const grades = Object.values(this.grade);
-        if (grades.length === 0) return 0;
-        return grades.reduce((sum, grade) => sum + grade, 0) / grades.length;
-    }
+	constructor(id: number, name: string, address: string, stundentClass: string) {
+		this.id = id;
+		this.name = name;
+		this.address = address;
+		this.role = 'elev';
+		this.stundentClass = stundentClass;
+		this.subject = new SubjectManager();
+		this.grade = new GradeManager();
+	}
 }
